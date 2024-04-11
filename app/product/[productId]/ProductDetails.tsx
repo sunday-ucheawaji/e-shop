@@ -9,6 +9,7 @@ import ProductImage from "@/app/components/products/ProductImage";
 import { useCart } from "@/hooks/useCart";
 import { MdCheckCircle } from "react-icons/md";
 import { useRouter } from "next/navigation";
+import { formatPrice } from "@/utils/formatPrice";
 
 interface ProductDetailsProps {
   product: any;
@@ -120,6 +121,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         <Horizontal />
         <div className="text-justify">{product.description}</div>
         <Horizontal />
+        <div className="">
+          <div className="font-bold text-3xl">{formatPrice(product.price)}</div>
+        </div>
         <div>
           <span className="font-semibold">CATEGORY</span> {product.category}
         </div>

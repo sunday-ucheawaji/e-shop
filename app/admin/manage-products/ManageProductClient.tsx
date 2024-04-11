@@ -34,7 +34,7 @@ const ManageProductClient: React.FC<ManageProductClientProps> = ({
       return {
         id: product.id,
         name: product.name,
-        price: formatPrice(product.price),
+        price: formatPrice(product.price / 100),
         category: product.category,
         brand: product.brand,
         inStock: product.inStock,

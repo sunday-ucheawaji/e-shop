@@ -34,7 +34,7 @@ export async function POST(request: Request){
     const total = calculateOrderAmount(items) * 100 ;
     const orderData = {
         user: {connect: {id: currentUser.id}},
-        amount: calculateOrderAmount(items),
+        amount: total,
         currency: 'usd',
         status: 'pending',
         deliveryStatus: 'pending',
