@@ -25,7 +25,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
       <div className="">{order.id}</div>
       <div className="">
         Total Amount:{" "}
-        <span className="font-bold">{formatPrice(order.amount)}</span>
+        <span className="font-bold">{formatPrice(order.amount / 100)}</span>
       </div>
 
       <div className="flex gap-2 items-center">
@@ -91,7 +91,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
         </div>
         {order.products &&
           order.products.map((item) => {
-            return <OrderItem key={item.id}  item={item} />
+            return <OrderItem key={item.id} item={item} />;
           })}
       </div>
     </div>
