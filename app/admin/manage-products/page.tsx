@@ -4,7 +4,7 @@ import ManageProductClient from "./ManageProductClient";
 import getProducts from "@/actions/getProducts";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import NullData from "@/app/components/NullData";
-import CircularProgress from "@mui/joy/CircularProgress";
+// import CircularProgress from "@mui/joy/CircularProgress";
 
 const ManageProducts = async () => {
   const products = await getProducts({ category: null });
@@ -16,7 +16,7 @@ const ManageProducts = async () => {
   return (
     <div className="pt-8">
       <Container>
-        <Suspense fallback={<CircularProgress variant="solid" />}>
+        <Suspense fallback={<div>Loading...</div>}>
           <ManageProductClient products={products} />
         </Suspense>
       </Container>

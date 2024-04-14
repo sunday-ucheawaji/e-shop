@@ -3,7 +3,7 @@ import Container from "../components/Container";
 import FormWrap from "../components/FormWrap";
 import LoginForm from "./LoginForm";
 import { getCurrentUser } from "@/actions/getCurrentUser";
-import CircularProgress from "@mui/joy/CircularProgress";
+// import CircularProgress from "@mui/joy/CircularProgress";
 
 const Login = async () => {
   const currentUser = await getCurrentUser();
@@ -11,7 +11,7 @@ const Login = async () => {
   return (
     <Container>
       <FormWrap>
-        <Suspense fallback={<CircularProgress variant="solid" />}>
+        <Suspense fallback={<div>Loading...</div>}>
           <LoginForm currentUser={currentUser} />
         </Suspense>
       </FormWrap>

@@ -4,7 +4,7 @@ import Container from "@/app/components/Container";
 import FormWrap from "@/app/components/FormWrap";
 import AddProductForm from "./AddProductForm";
 import NullData from "@/app/components/NullData";
-import CircularProgress from "@mui/joy/CircularProgress";
+// import CircularProgress from "@mui/joy/CircularProgress";
 
 const AddProducts = async () => {
   const currentUser = await getCurrentUser();
@@ -17,7 +17,7 @@ const AddProducts = async () => {
     <div>
       <Container>
         <FormWrap>
-          <Suspense fallback={<CircularProgress variant="solid" />}>
+          <Suspense fallback={<div>Loading...</div>}>
             <AddProductForm />
           </Suspense>
         </FormWrap>
