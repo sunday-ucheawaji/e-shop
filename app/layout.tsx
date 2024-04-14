@@ -31,15 +31,15 @@ export default async function RootLayout({
             },
           }}
         />
-        <CartProvider>
-          <div className="flex flex-col min-h-screen">
-            <NavBar />
-            <Suspense fallback={<CircularProgress variant="solid" />}>
+        <Suspense fallback={<CircularProgress variant="solid" />}>
+          <CartProvider>
+            <div className="flex flex-col min-h-screen">
+              <NavBar />
               <main className="flex-grow">{children}</main>
-            </Suspense>
-            <Footer />
-          </div>
-        </CartProvider>
+              <Footer />
+            </div>
+          </CartProvider>
+        </Suspense>
       </body>
     </html>
   );
