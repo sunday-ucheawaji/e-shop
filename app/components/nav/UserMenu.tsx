@@ -19,7 +19,6 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     setIsOpen((prev) => !prev);
   }, []);
 
-  console.log("current user >>>", currentUser);
 
   return (
     <>
