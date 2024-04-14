@@ -19,6 +19,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     setIsOpen((prev) => !prev);
   }, []);
 
+  console.log("current user", currentUser);
 
   return (
     <>
@@ -45,9 +46,12 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <Link href="/orders">
                   <MenuItem onClick={toggleOpen}> Your Orders</MenuItem>
                 </Link>
-                <Link href="/admin">
-                  <MenuItem onClick={toggleOpen}> Admin Dashboard</MenuItem>
-                </Link>
+                {currentUser?.role === "ADMIN" && (
+                  <Link href="/admin">
+                    <MenuItem onClick={toggleOpen}> Admin Dashboard</MenuItem>
+                  </Link>
+                )}
+
                 <hr />
                 <MenuItem
                   onClick={() => {
