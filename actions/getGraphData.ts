@@ -38,7 +38,6 @@ export default async function getGraphData() {
 
       const day = currentDate.format("dddd");
 
-      console.log("day<<<", day, currentDate);
 
       // initialize the aggreagated data for the day with the day, date, and total amount
       aggregatedData[day] = {

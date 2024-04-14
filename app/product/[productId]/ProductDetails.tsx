@@ -53,7 +53,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
 
   const router = useRouter();
 
-  console.log(cartProducts);
 
   useEffect(() => {
     setIsProductInCart(false);

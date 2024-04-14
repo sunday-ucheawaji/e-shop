@@ -103,18 +103,14 @@ const AddProductForm = () => {
                 (snapshot) => {
                   const progress =
                     (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                  console.log("Upload is" + progress + "% done");
                   switch (snapshot.state) {
                     case "paused":
-                      console.log("Upload is paused");
                       break;
                     case "running":
-                      console.log("Upload is running");
                       break;
                   }
                 },
                 (error) => {
-                  console.log("Error uploading image", error);
                   reject(error);
                 },
                 () => {
@@ -122,11 +118,9 @@ const AddProductForm = () => {
                   getDownloadURL(uploadTask.snapshot.ref)
                     .then((downloadURL) => {
                       uploadedImages.push({ ...item, image: downloadURL });
-                      console.log("file available at", downloadURL);
                       resolve();
                     })
                     .catch((error: any) => {
-                      console.log("Error getting the download URL", error);
                       reject(error);
                     });
                 }
@@ -136,14 +130,12 @@ const AddProductForm = () => {
         }
       } catch (error) {
         setIsLoading(false);
-        console.log("Error handling the image uploads", error);
         return toast.error("Error handling image uploads");
       }
     };
 
     await handleImageUploads();
     const productData = { ...data, images: uploadedImages };
-    console.log("productData", productData);
 
     axios
       .post("/api/product", productData)
