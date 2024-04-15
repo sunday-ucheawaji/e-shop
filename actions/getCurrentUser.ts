@@ -8,7 +8,8 @@ export async function getSession(){
 export async function getCurrentUser(){
     try{
         const session = await getSession();
-        console.log("session", session)
+        console.log("SESSION >>>>", session);
+        
         if (!session?.user?.email){
             return null
         }
@@ -24,9 +25,9 @@ export async function getCurrentUser(){
 
         if(!currentUser){
             return null;
-        }
-
-        console.log("session after >>>", session)
+        }     
+        
+        console.log("CURRENT USER", currentUser);
         
 
         return {

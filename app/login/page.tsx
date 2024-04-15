@@ -11,9 +11,7 @@ const Login = async () => {
   return (
     <Container>
       <FormWrap>
-        <Suspense fallback={<div>Loading...</div>}>
           <LoginForm currentUser={currentUser} />
-        </Suspense>
       </FormWrap>
     </Container>
   );
