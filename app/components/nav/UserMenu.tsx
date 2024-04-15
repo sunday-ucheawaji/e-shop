@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import Avatar from "../Avatar";
 import Link from "next/link";
@@ -14,12 +14,19 @@ interface UserMenuProps {
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentUserState, setCurrentUserState] = useState<any>(null);
 
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
 
   console.log("current user", currentUser);
+
+  useEffect(() => {
+    if (currentUser) {
+      setCurrentUserState(currentUser);
+    }
+  }, [currentUser]);
 
   return (
     <>
@@ -31,7 +38,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           cursor-pointer hover:shadow-md transition
           text-slate-700"
         >
-          <Avatar src={currentUser?.image} />
+          <Avatar src={currentUserState?.image} />
           <AiFillCaretDown />
         </div>
         {isOpen && (
@@ -41,12 +48,12 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           right-0 top-12 text-sm flex flex-col 
           cursor-pointer "
           >
-            {currentUser ? (
+            {currentUserState ? (
               <div>
                 <Link href="/orders">
                   <MenuItem onClick={toggleOpen}> Your Orders</MenuItem>
                 </Link>
-                {currentUser?.role === "ADMIN" && (
+                {currentUserState?.role === "ADMIN" && (
                   <Link href="/admin">
                     <MenuItem onClick={toggleOpen}> Admin Dashboard</MenuItem>
                   </Link>

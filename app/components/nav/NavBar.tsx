@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import Container from "../Container";
 import Link from "next/link";
@@ -12,22 +11,8 @@ import SearchBar from "./SearchBar";
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
 const NavBar = async () => {
-  // const currentUser = await getCurrentUser();
+  const currentUser = await getCurrentUser();
 
-  const [currentUser, setCurrentUser] = useState(null);
-
-  useEffect(() => {
-    const fetchCurrentUser = async () => {
-      try {
-        const user: any = await getCurrentUser();
-        setCurrentUser(user);
-      } catch (error) {
-        console.error("Error fetching current user:", error);
-      }
-    };
-
-    fetchCurrentUser();
-  }, []);
 
   return (
     <div className="sticky top-0 w-full bg-slate-200 z-30 shadow-sm">

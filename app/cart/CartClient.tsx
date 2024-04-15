@@ -1,7 +1,7 @@
 "use client";
 import { useCart } from "@/hooks/useCart";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdArrowBack } from "react-icons/md";
 import Heading from "../components/Heading";
 import Button from "../components/Button";
@@ -16,6 +16,16 @@ interface CartClientProp {
 
 const CartClient: React.FC<CartClientProp> = ({ currentUser }) => {
   const { cartProducts, cartTotalAmount, handleClearCart } = useCart();
+
+  const [currentUserState, setCurrentUserState] = useState<any>(null);
+
+  console.log("current user", currentUser);
+
+  useEffect(() => {
+    if (currentUser) {
+      setCurrentUserState(currentUser);
+    }
+  }, [currentUser]);
 
   const router = useRouter();
 
@@ -68,11 +78,12 @@ const CartClient: React.FC<CartClientProp> = ({ currentUser }) => {
             Taxes and shipping calculate at checkout
           </p>
           <Button
-            label={currentUser ? "Checkout" : "Login to checkout"}
-            outline={currentUser ? false : true}
+            label={currentUserState ? "Checkout" : "Login to checkout"}
+            outline={currentUserState ? false : true}
             onClick={() => {
-              currentUser ? router.push("/checkout") : router.push("/login");
-              
+              currentUserState
+                ? router.push("/checkout")
+                : router.push("/login");
             }}
           />
           <Link
