@@ -60,9 +60,9 @@ export const authOptions: AuthOptions = {
       }
       return token;
     },
-    
+
     async session({ session, token }) {
-      session.accessToken = token.user as string;
+      session.user = token.user;
       return session;
     },
   },
