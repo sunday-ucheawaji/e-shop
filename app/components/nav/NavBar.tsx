@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Container from "../Container";
 import Link from "next/link";
 import { Redressed } from "next/font/google";
@@ -13,6 +13,7 @@ const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 const NavBar = async () => {
   const currentUser = await getCurrentUser();
 
+  console.log("current user", currentUser);
 
   return (
     <div className="sticky top-0 w-full bg-slate-200 z-30 shadow-sm">
