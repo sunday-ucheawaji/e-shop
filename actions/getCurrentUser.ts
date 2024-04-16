@@ -8,7 +8,6 @@ export async function getSession(){
 export async function getCurrentUser(){
     try{
         const session = await getSession();
-        console.log("SESSION >>>>", session);
         
         if (!session?.user?.email){
             return null
@@ -26,15 +25,13 @@ export async function getCurrentUser(){
         if(!currentUser){
             return null;
         }     
-        
-        console.log("CURRENT USER", currentUser);
-        
+                
 
         return {
             ...currentUser, 
-            createdAt: currentUser.createdAt?.toISOString(),
-            updatedAt: currentUser.updatedAt?.toISOString(),
-            emailVerified: currentUser.emailVerified?.toISOString() || null
+            createdAt: currentUser?.createdAt?.toISOString(),
+            updatedAt: currentUser?.updatedAt?.toISOString(),
+            emailVerified: currentUser?.emailVerified?.toISOString() || null
         }
 
 
