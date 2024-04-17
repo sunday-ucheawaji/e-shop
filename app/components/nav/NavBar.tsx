@@ -7,11 +7,15 @@ import UserMenu from "./UserMenu";
 import { getCurrentUser, getSession } from "@/actions/getCurrentUser";
 import Categories from "./Categories";
 import SearchBar from "./SearchBar";
+import axios from "axios";
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
 const NavBar = async () => {
   const currentUser = await getCurrentUser();
+
+  // const myUser = await axios.get("/api/get-current-user" );
+  // console.log("check axios call", myUser.data);
 
   console.log("currentUser check >>>>>>>>", currentUser);
 
