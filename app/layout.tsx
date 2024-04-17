@@ -23,7 +23,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session: any = getServerSession();
+  // const session: any = getServerSession();
   return (
     <html lang="en">
       {/* <SessionProvider session={session}> */}
@@ -36,7 +36,7 @@ export default async function RootLayout({
               },
             }}
           />
-          {/* <Suspense fallback={<div>Loading ...</div>}> */}
+          <Suspense fallback={<div>Loading ...</div>}>
             <CartProvider>
               <div className="flex flex-col min-h-screen">
                 <NavBar />
@@ -44,7 +44,7 @@ export default async function RootLayout({
                 <Footer />
               </div>
             </CartProvider>
-          {/* </Suspense> */}
+          </Suspense>
         </body>
       {/* </SessionProvider> */}
     </html>
