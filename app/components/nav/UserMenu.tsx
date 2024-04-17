@@ -15,9 +15,9 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { data: session, status } = useSession();
+  // const { data: session, status } = useSession();
 
-  const currentUsers: any = session?.user;
+  // const currentUsers: any = session?.user;
 
   console.log("currentUsers >>>>", currentUser);
 
@@ -35,7 +35,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           cursor-pointer hover:shadow-md transition
           text-slate-700"
         >
-          <Avatar src={currentUsers?.image} />
+          <Avatar src={currentUser?.image} />
           <AiFillCaretDown />
         </div>
         {isOpen && (
@@ -45,12 +45,12 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           right-0 top-12 text-sm flex flex-col 
           cursor-pointer "
           >
-            {currentUsers ? (
+            {currentUser ? (
               <div>
                 <Link href="/orders">
                   <MenuItem onClick={toggleOpen}> Your Orders</MenuItem>
                 </Link>
-                {currentUsers?.role === "ADMIN" && (
+                {currentUser?.role === "ADMIN" && (
                   <Link href="/admin">
                     <MenuItem onClick={toggleOpen}> Admin Dashboard</MenuItem>
                   </Link>

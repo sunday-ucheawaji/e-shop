@@ -26,7 +26,7 @@ export default async function RootLayout({
   const session: any = getServerSession();
   return (
     <html lang="en">
-      <SessionProvider session={session}>
+      {/* <SessionProvider session={session}> */}
         <body className={`${poppins.className} text-slate-700`}>
           <Toaster
             toastOptions={{
@@ -36,7 +36,7 @@ export default async function RootLayout({
               },
             }}
           />
-          <Suspense fallback={<div>Loading ...</div>}>
+          {/* <Suspense fallback={<div>Loading ...</div>}> */}
             <CartProvider>
               <div className="flex flex-col min-h-screen">
                 <NavBar />
@@ -44,9 +44,9 @@ export default async function RootLayout({
                 <Footer />
               </div>
             </CartProvider>
-          </Suspense>
+          {/* </Suspense> */}
         </body>
-      </SessionProvider>
+      {/* </SessionProvider> */}
     </html>
   );
 }
