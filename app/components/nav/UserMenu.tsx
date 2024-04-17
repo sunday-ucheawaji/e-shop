@@ -4,7 +4,7 @@ import { AiFillCaretDown } from "react-icons/ai";
 import Avatar from "../Avatar";
 import Link from "next/link";
 import MenuItem from "./MenuItem";
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import BackDrop from "./BackDrop";
 import { SafeUser } from "@/types";
 
@@ -14,12 +14,6 @@ interface UserMenuProps {
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  // const { data: session, status } = useSession();
-
-  // const currentUsers: any = session?.user;
-
-  console.log("currentUsers >>>>", currentUser);
 
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);

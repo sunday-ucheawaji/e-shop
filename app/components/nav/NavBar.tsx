@@ -4,20 +4,14 @@ import Link from "next/link";
 import { Redressed } from "next/font/google";
 import CartCount from "./CartCount";
 import UserMenu from "./UserMenu";
-import { getCurrentUser, getSession } from "@/actions/getCurrentUser";
+import { getCurrentUser } from "@/actions/getCurrentUser";
 import Categories from "./Categories";
 import SearchBar from "./SearchBar";
-import axios from "axios";
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
 const NavBar = async () => {
   const currentUser = await getCurrentUser();
-
-  // const myUser = await axios.get("/api/get-current-user" );
-  // console.log("check axios call", myUser.data);
-
-  console.log("currentUser check >>>>>>>>", currentUser);
 
   return (
     <div className="sticky top-0 w-full bg-slate-200 z-30 shadow-sm">

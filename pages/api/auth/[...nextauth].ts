@@ -50,31 +50,12 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.user = user;
-      }
-      return token;
-    },
 
-    async session({ session, token }) {
-      session.user = token.user as {
-        name?: string | null | undefined;
-        email?: string | null | undefined;
-        image?: string | null | undefined;
-        role?: string | null | undefined;
-    } | undefined ;
-      return session;
-    },
-  },
 
   pages: {
     signIn: "/login",
   },
-  // debug: process.env.NODE_ENV === 'development',
-  debug: true,
-
+  debug: process.env.NODE_ENV === 'development',
   session: {
     strategy: "jwt",
   },
