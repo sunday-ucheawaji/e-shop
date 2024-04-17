@@ -46,9 +46,6 @@ export const authOptions: AuthOptions = {
         if (!isCorrectPassword) {
           throw new Error("Invalid email or password");
         }
-
-        console.log("authorizae", user);
-
         return user;
       },
     }),
@@ -66,6 +63,7 @@ export const authOptions: AuthOptions = {
         name?: string | null | undefined;
         email?: string | null | undefined;
         image?: string | null | undefined;
+        role?: string | null | undefined;
     } | undefined ;
       return session;
     },

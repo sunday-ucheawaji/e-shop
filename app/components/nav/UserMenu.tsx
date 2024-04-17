@@ -4,7 +4,7 @@ import { AiFillCaretDown } from "react-icons/ai";
 import Avatar from "../Avatar";
 import Link from "next/link";
 import MenuItem from "./MenuItem";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import BackDrop from "./BackDrop";
 import { SafeUser } from "@/types";
 
@@ -15,10 +15,15 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const { data: session, status } = useSession();
+
+  const currentUsers: any = session?.user;
+
+  console.log("currentUsers >>>>", currentUser);
+
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
-
 
   return (
     <>
@@ -30,7 +35,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           cursor-pointer hover:shadow-md transition
           text-slate-700"
         >
-          <Avatar src={currentUser?.image} />
+          <Avatar src={currentUsers?.image} />
           <AiFillCaretDown />
         </div>
         {isOpen && (
@@ -40,12 +45,12 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           right-0 top-12 text-sm flex flex-col 
           cursor-pointer "
           >
-            {currentUser ? (
+            {currentUsers ? (
               <div>
                 <Link href="/orders">
                   <MenuItem onClick={toggleOpen}> Your Orders</MenuItem>
                 </Link>
-                {currentUser?.role === "ADMIN" && (
+                {currentUsers?.role === "ADMIN" && (
                   <Link href="/admin">
                     <MenuItem onClick={toggleOpen}> Admin Dashboard</MenuItem>
                   </Link>
