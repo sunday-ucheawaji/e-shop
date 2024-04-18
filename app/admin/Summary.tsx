@@ -64,7 +64,7 @@ const Summary: React.FC<SummaryProps> = ({ orders, products, users }) => {
         return order.status === "pending";
       });
 
-      tempData.sale.digit = totalSale;
+      tempData.sale.digit = totalSale / 100;
       tempData.orders.digit = orders.length;
       tempData.paidOrders.digit = paidOrders.length;
       tempData.unpaidOrders.digit = unpaidOrders.length;
@@ -86,7 +86,10 @@ const Summary: React.FC<SummaryProps> = ({ orders, products, users }) => {
         {summaryKeys &&
           summaryKeys.map((key) => {
             return (
-              <div key={key} className="rounded-xl border-2 p-4 flex flex-col items-center gap-2 transition">
+              <div
+                key={key}
+                className="rounded-xl border-2 p-4 flex flex-col items-center gap-2 transition"
+              >
                 <div className="text-xl md:text-4xl font-bold">
                   {summaryData[key].label === "Total Sale" ? (
                     <>{formatPrice(summaryData[key].digit)}</>
@@ -99,7 +102,6 @@ const Summary: React.FC<SummaryProps> = ({ orders, products, users }) => {
             );
           })}
       </div>
-      
     </div>
   );
 };
