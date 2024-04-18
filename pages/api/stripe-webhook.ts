@@ -38,10 +38,7 @@ export default async function handler(
 
   switch (event.type) {
     case "charge.succeeded":
-      const charge: any = event.data.object as Stripe.Charge;
-
-      console.log("charge --charge.shipping?.address", charge.shipping?.address);
-      
+      const charge: any = event.data.object as Stripe.Charge;      
 
       if (typeof charge.payment_intent === "string") {
         await prisma?.order.update({

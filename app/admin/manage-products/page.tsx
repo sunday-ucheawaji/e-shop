@@ -1,10 +1,9 @@
-import React, { Suspense } from "react";
+import React from "react";
 import Container from "@/app/components/Container";
 import ManageProductClient from "./ManageProductClient";
 import getProducts from "@/actions/getProducts";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import NullData from "@/app/components/NullData";
-// import CircularProgress from "@mui/joy/CircularProgress";
 
 const ManageProducts = async () => {
   const products = await getProducts({ category: null });
@@ -16,9 +15,7 @@ const ManageProducts = async () => {
   return (
     <div className="pt-8">
       <Container>
-        <Suspense fallback={<div>Loading...</div>}>
-          <ManageProductClient products={products} />
-        </Suspense>
+        <ManageProductClient products={products} />
       </Container>
     </div>
   );

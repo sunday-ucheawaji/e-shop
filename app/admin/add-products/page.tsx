@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import Container from "@/app/components/Container";
 import FormWrap from "@/app/components/FormWrap";
@@ -17,9 +17,7 @@ const AddProducts = async () => {
     <div>
       <Container>
         <FormWrap>
-          <Suspense fallback={<div>Loading...</div>}>
             <AddProductForm />
-          </Suspense>
         </FormWrap>
       </Container>
     </div>

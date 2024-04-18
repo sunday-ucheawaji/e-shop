@@ -1,10 +1,9 @@
-import React, { Suspense } from "react";
+import React from "react";
 import Container from "@/app/components/Container";
 import ManageOrdersClient from "./ManageOrdersClient";
 import getOrders from "@/actions/getOrders";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import NullData from "@/app/components/NullData";
-// import CircularProgress from "@mui/joy/CircularProgress";
 
 const ManageOrders = async () => {
   const orders = await getOrders();
@@ -16,9 +15,7 @@ const ManageOrders = async () => {
   return (
     <div className="pt-8">
       <Container>
-        <Suspense fallback={<div>Loading...</div>}>
           <ManageOrdersClient orders={orders} />
-        </Suspense>
       </Container>
     </div>
   );
