@@ -1,4 +1,4 @@
-export const revalidate = 0
+export const revalidate = 0;
 
 import Container from "./components/Container";
 import HomeBanner from "./components/HomeBanner";
@@ -30,6 +30,7 @@ export default async function Home({ searchParams }: HomeProps) {
   }
 
   const shuffledProducts = shuffleArray(products);
+
 
   return (
     <div className="p-8">
