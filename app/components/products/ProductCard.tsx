@@ -30,7 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
           <Image
             fill
             src={data?.images[0]?.image}
-            alt={data.name}
+            alt={data?.name}
             className="w-full h-full object-contain"
           />
         </div>
