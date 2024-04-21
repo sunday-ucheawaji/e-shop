@@ -1,10 +1,10 @@
 "use client";
+import React from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { Rating } from "@mui/material";
 import { formatPrice } from "@/utils/formatPrice";
 import { truncate } from "@/utils/truncateText";
-import { Rating } from "@mui/material";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import React from "react";
 
 interface ProductCardProps {
   data: any;
@@ -13,8 +13,8 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const router = useRouter();
   const productRating =
-    data.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) /
-    data.reviews.length;
+    data?.reviews?.reduce((acc: number, item: any) => item?.rating + acc, 0) /
+    data?.reviews?.length;
 
   return (
     <div
@@ -29,17 +29,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
         <div className="aspect-square overflow-hidden relative w-full">
           <Image
             fill
-            src={data.images[0].image}
+            src={data?.images[0]?.image}
             alt={data.name}
             className="w-full h-full object-contain"
           />
         </div>
-        <div className="mt-4">{truncate(data.name)}</div>
+        <div className="mt-4">{truncate(data?.name)}</div>
         <div>
           <Rating value={productRating} readOnly />
         </div>
-        <div>{data.reviews.length} Reviews</div>
-        <div className="font-semibold">{formatPrice(data.price)}</div>
+        <div>{data?.reviews?.length} Reviews</div>
+        <div className="font-semibold">{formatPrice(data?.price)}</div>
         <div></div>
       </div>
     </div>

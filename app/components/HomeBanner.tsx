@@ -16,7 +16,7 @@ const HomeBanner = () => {
             GET 50% OFF
           </p>
         </div>
-        <div className="w-1/3 relative aspect-video">
+        <div className="w-1/3  relative aspect-video ">
           <Image
             src="/banner-image.png"
             fill
