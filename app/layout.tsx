@@ -2,9 +2,9 @@ import React, { Suspense } from "react";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-// import NavBar from "./components/nav/NavBar";
-// import Footer from "./components/footer/Footer";
-// import CartProvider from "@/providers/CartProvider";
+import NavBar from "./components/nav/NavBar";
+import Footer from "./components/footer/Footer";
+import CartProvider from "@/providers/CartProvider";
 import { Toaster } from "react-hot-toast";
 import SuspenseLoader from "./components/SuspenseLoader";
 
@@ -34,14 +34,13 @@ export default async function RootLayout({
           }}
         />
         <Suspense fallback={<SuspenseLoader />}>
-          {/* <CartProvider>
+          <CartProvider>
             <div className="flex flex-col min-h-screen">
               <NavBar />
-              <main className="flex-grow">{children}</main>
+              {/* <main className="flex-grow">{children}</main> */}
               <Footer />
             </div>
-          </CartProvider> */}
-          <h1>CHECKING</h1>
+          </CartProvider>
         </Suspense>
       </body>
     </html>
