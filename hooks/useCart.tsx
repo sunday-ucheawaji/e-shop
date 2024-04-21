@@ -5,19 +5,19 @@ import {
   useEffect,
   useState,
 } from "react";
-import { CartProductType } from "@/app/product/[productId]/ProductDetails";
 import { toast } from "react-hot-toast";
+import { CartProductType } from "@/app/product/[productId]/ProductDetails";
 
 type CartContextType = {
   cartTotalQty: number;
   cartTotalAmount: number;
   cartProducts: CartProductType[] | null;
+  paymentIntent: string | null;
   handleAddProductToCart: (product: CartProductType) => void;
   handleRemoveProduct: (product: CartProductType) => void;
   handleCartQtyIncrease: (product: CartProductType) => void;
   handleCartQtyDecrease: (product: CartProductType) => void;
   handleClearCart: () => void;
-  paymentIntent: string | null;
   handleSetPaymentIntent: (val: string | null) => void;
 };
 
