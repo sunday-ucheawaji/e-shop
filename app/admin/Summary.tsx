@@ -1,6 +1,6 @@
 "use client";
-import { Order, Product, User } from "@prisma/client";
 import React, { useEffect, useState } from "react";
+import { Order, Product, User } from "@prisma/client";
 import Heading from "../components/Heading";
 import { formatPrice } from "@/utils/formatPrice";
 import { formatnumber } from "@/utils/formatNumber";
