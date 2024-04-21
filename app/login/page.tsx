@@ -1,8 +1,8 @@
 import React from "react";
+import { getCurrentUser } from "@/actions/getCurrentUser";
 import Container from "../components/Container";
 import FormWrap from "../components/FormWrap";
 import LoginForm from "./LoginForm";
-import { getCurrentUser } from "@/actions/getCurrentUser";
 
 const Login = async () => {
   const currentUser = await getCurrentUser();
@@ -10,7 +10,7 @@ const Login = async () => {
   return (
     <Container>
       <FormWrap>
-          <LoginForm currentUser={currentUser} />
+        <LoginForm currentUser={currentUser} />
       </FormWrap>
     </Container>
   );

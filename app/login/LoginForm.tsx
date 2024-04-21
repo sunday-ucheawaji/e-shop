@@ -1,14 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Heading from "../components/Heading";
-import Input from "../components/inputs/Input";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import Button from "../components/Button";
-import Link from "next/link";
-import { AiOutlineGoogle } from "react-icons/ai";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { AiOutlineGoogle } from "react-icons/ai";
+import Heading from "../components/Heading";
+import Input from "../components/inputs/Input";
+import Button from "../components/Button";
 import { SafeUser } from "@/types";
 
 interface LoginFormProps {
@@ -60,7 +60,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ currentUser }) => {
   }
   return (
     <>
-      <Heading title="Sign in to E-Shop" />
+      <Heading title="Sign in to E~Shop" />
       <Button
         outline
         label="Continue with Google"
