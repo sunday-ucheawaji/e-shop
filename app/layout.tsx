@@ -36,9 +36,10 @@ export default async function RootLayout({
         <Suspense fallback={<SuspenseLoader />}>
           <CartProvider>
             <div className="flex flex-col min-h-screen">
-              <NavBar />
+              <h1>CHECKING</h1>
+              {/* <NavBar /> */}
               {/* <main className="flex-grow">{children}</main> */}
-              <Footer />
+              {/* <Footer /> */}
             </div>
           </CartProvider>
         </Suspense>
