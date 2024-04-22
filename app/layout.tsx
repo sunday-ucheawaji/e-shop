@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 // import NavBar from "./components/nav/NavBar";
-// import Footer from "./components/footer/Footer";
+import Footer from "./components/footer/Footer";
 import CartProvider from "@/providers/CartProvider";
 import { Toaster } from "react-hot-toast";
 import SuspenseLoader from "./components/SuspenseLoader";
@@ -39,7 +39,7 @@ export default async function RootLayout({
               <h1>CHECKING</h1>
               {/* <NavBar /> */}
               {/* <main className="flex-grow">{children}</main> */}
-              {/* <Footer /> */}
+              <Footer />
             </div>
           </CartProvider>
         </Suspense>
