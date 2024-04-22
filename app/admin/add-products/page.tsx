@@ -4,7 +4,6 @@ import Container from "@/app/components/Container";
 import FormWrap from "@/app/components/FormWrap";
 import AddProductForm from "./AddProductForm";
 import NullData from "@/app/components/NullData";
-// import CircularProgress from "@mui/joy/CircularProgress";
 
 const AddProducts = async () => {
   const currentUser = await getCurrentUser();
