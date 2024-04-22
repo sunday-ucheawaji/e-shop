@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import Footer from "./components/footer/Footer";
 import CartProvider from "@/providers/CartProvider";
 import { Toaster } from "react-hot-toast";
 import SuspenseLoader from "./components/SuspenseLoader";
@@ -13,6 +12,8 @@ const NavBar = dynamic(() => import("./components/nav/NavBar"));
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 
 const DynamicMain = dynamic(() => import("../app/components/DynamicMain"));
+const Footer = dynamic(()=> import("./components/footer/Footer"))
+
 
 export const metadata: Metadata = {
   title: "E~Shop",
