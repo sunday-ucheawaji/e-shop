@@ -1,7 +1,7 @@
 "use client";
+import React from "react";
 import { useRouter } from "next/navigation";
 import queryString from "query-string";
-import React from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 const SearchBar = () => {
