@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Container from "../Container";
 import FooterList from "./FooterList";
@@ -8,20 +9,29 @@ import {
   AiFillInstagram,
   AiFillYoutube,
 } from "react-icons/ai";
+import { categories } from "@/utils/Categories";
+import FooterCategoryItem from "./FooterCategoryItem";
+import { useSearchParams } from "next/navigation";
 
 const Footer = () => {
+  const params = useSearchParams();
+  const category = params?.get("category");
   return (
     <div className="bg-slate-700 text-slate-200 text-sm mt-16">
       <Container>
         <div className="flex flex-col md:flex-row justify-between pt-16 pb-8">
           <FooterList>
             <h3 className="text-base font-bold mb-2">Shop Categories</h3>
-            <Link href="#">Phones</Link>
-            <Link href="#">Laptops</Link>
-            <Link href="#">Desktops</Link>
-            <Link href="#">Watches</Link>
-            <Link href="#">Tvs</Link>
-            <Link href="#">Accessories</Link>
+            {categories.map((item) => (
+              <FooterCategoryItem
+                key={item.label}
+                label={item.label}
+                selected={
+                  category === item.label ||
+                  (category === null && item.label === "All")
+                }
+              />
+            ))}
           </FooterList>
           <FooterList>
             <h3 className="text-base font-bold mb-2">Customer Service</h3>
