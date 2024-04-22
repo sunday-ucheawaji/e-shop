@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import queryString from "query-string";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
-const SearchBar = () => {
+const SearchBar: React.FC = () => {
   const router = useRouter();
   const {
     register,
